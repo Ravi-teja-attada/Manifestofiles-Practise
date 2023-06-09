@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluentd
+spec:
+  template:
+    metadata:
+      name: daemon-pod
+      labels:
+        name: fluentd
+    spec:
+      containers:
+        - name: fluentd-container
+          image: fluent/fluentd
+  selector:
+    matchLabels:
+      name: fluentd
